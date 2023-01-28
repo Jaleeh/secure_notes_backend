@@ -9,7 +9,7 @@ router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('notes/<int:pk>/',SingleNoteView.as_view(),name = 'single_note'),
+    path('notes/<int:pk>/',SingleNoteView.as_view(),name = 'note'), #gets note by id
 
 
 
