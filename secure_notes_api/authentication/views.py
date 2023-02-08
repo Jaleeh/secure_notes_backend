@@ -23,8 +23,8 @@ class RegisterAPIView(GenericAPIView):
 
 class LoginAPView(GenericAPIView): #send POST request
     serializer_class = LoginUserSerializer
-    authentication_classes = JWTAuthentication
-    permission_classes = AllowAny #allows any user to access the end point
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (AllowAny,) #allows any user to access the end point
 
     def post(self,request):
         email = request.data.get('email',None)
