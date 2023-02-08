@@ -9,7 +9,7 @@ class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
 
-#view individual note 
+#view individual note
 class SingleNoteView(RetrieveAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer

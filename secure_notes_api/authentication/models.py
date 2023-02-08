@@ -5,8 +5,6 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 class UserManager(BaseUserManager):
 # The create_user() method creates, saves, and returns the User. 
 # And the create_superuser() method sets the is_staff and is_superuser to True.
-    use_in_migration = True
-
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('Email is Required')
