@@ -26,5 +26,11 @@ class SingleNoteView(RetrieveAPIView):
         return Note.objects.filter(id=self.kwargs.get(self.lookup_field))#filter based on ID
 
 class NoteDeleteView(generics.DestroyAPIView): 
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Note.objects.all() 
+    serializer_class = NoteSerializer
+
+class NoteCreateView(generics.CreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Note.objects.all()
     serializer_class = NoteSerializer

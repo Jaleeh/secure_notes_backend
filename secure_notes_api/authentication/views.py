@@ -4,7 +4,7 @@ from rest_framework import generics,response,serializers,status
 from rest_framework.generics import GenericAPIView
 from .serializers import RegisterUserSerializer,UserListSerializer,LoginUserSerializer
 from .models import UserData
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny,IsAdminUser
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.contrib.auth import authenticate
@@ -44,4 +44,5 @@ class LoginAPView(GenericAPIView): #send POST request
 
 class UserListAPIView(generics.ListAPIView):
     serializer_class = UserListSerializer
+    permission_classes = IsAdminUser
     queryset = UserData.objects.all()
