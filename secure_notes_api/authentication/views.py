@@ -39,7 +39,12 @@ class LoginAPView(GenericAPIView): #send POST request
             clear['access'] = str(refresh.access_token)
             return response.Response(clear,status=status.HTTP_200_OK)
         return response.Response({'message':'Invalid Credentials'},status=status.HTTP_401_UNAUTHORIZED)
-
+    
+class LogoutAPIView(GenericAPIView):    
+    def post(self,request):
+        token = RefreshToken(request.data.get('refresh'))
+        token.blacklist
+        return response.Response('Logout success')
 
 class UserListAPIView(generics.ListAPIView):
     serializer_class = UserListSerializer

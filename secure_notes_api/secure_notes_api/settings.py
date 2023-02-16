@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'api',
+    'rest_framework_simplejwt.token_blacklist',
 
 ]
 
