@@ -47,6 +47,7 @@ class LogoutAPIView(GenericAPIView):
         return response.Response('Logout success')
 
 class UserListAPIView(generics.ListAPIView):
+    authentication_classes = (JWTAuthentication,)
     serializer_class = UserListSerializer
     permission_classes = IsAdminUser
     queryset = UserData.objects.all()
